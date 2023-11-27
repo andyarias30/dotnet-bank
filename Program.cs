@@ -6,10 +6,21 @@ int age = 20;
 
 string name = "Andy";
 //Console.WriteLine($"your name is:  {name} and you're {age} years old");
-BankAccount newAccount = new BankAccount();
-newAccount.Balance = 100.99;
+try
+{
+    SavingsAccount newAccount = new SavingsAccount("Bobby", 100.99);
+    // newAccount.Balance = 100.99;
+    // newAccount.Balance = newAccount.Balance + 100;
 
-Console.WriteLine($"Your balance is {newAccount.Balance}");
+    newAccount.Deposit(50.00);
 
+    newAccount.Withdraw(40.00);
+
+    Console.WriteLine($"{newAccount.OwnersName} balance is {newAccount.getBalance()}");
+}
+catch (Exception err)
+{
+    Console.WriteLine($" you got an error : {err.Message}");
+}
 
 
